@@ -3,7 +3,7 @@
   hosts: all
   become: yes
   vars:
-    app_dir: "project"
+    app_dir: "project/project"
     python_version: "3.12.4"
     flask_requirements: "requirements.txt"
 
@@ -25,7 +25,7 @@
       copy:
         src: home/ec2-user/flask.sh
         dest: home/ec2-user/flask.sh
-        mode: 0755
+        mode: '0755'
 
     - name: Run shell script on remote server
       shell: sh home/ec2-user/flask.sh
