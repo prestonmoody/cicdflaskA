@@ -112,3 +112,15 @@ resource "aws_instance" "target" {
   }
 
 }
+resource "aws_db_instance" "mysqldb" {
+  allocated_storage    = 20
+  engine               = "mysql"
+  engine_version       = "8.0.35"
+  instance_class       = "db.t3.micro"
+  db_name              = "mydb"
+  username             = "admin"
+  password             = "password"
+  parameter_group_name = "default.mysql8.0"
+  skip_final_snapshot  = true
+  vpc_security_group_ids = [aws_security_group.target.id]
+}
