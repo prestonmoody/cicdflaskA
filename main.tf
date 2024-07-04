@@ -122,5 +122,5 @@ resource "aws_db_instance" "mysqldb" {
   password             = "password"
   parameter_group_name = "default.mysql8.0"
   skip_final_snapshot  = true
-  vpc_security_group_ids = [aws_security_group.target.id]
+  vpc_security_group_ids = [aws_security_group.gha-tf-ans-demo-targets.id]
 }
