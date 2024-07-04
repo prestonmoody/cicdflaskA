@@ -21,7 +21,7 @@ jobs:
     - name: Exports
       run: |
         source .venv/bin/activate
-        export FLASK_APP= ~/
+        export FLASK_APP=.
         export FLASK_DEBUG=1
 
     - name: Install dependencies
