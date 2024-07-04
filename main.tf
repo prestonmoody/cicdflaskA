@@ -90,7 +90,7 @@ resource "aws_instance" "control" {
     }
   }
   provisioner "file" {
-    source      = "project/project/deploy_flask_app.yml"
+    source      = "deploy_flask_app.yml"
     destination = "home/ec2-user/deploy_flask_app.yml"
 
     connection {
