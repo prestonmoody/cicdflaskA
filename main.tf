@@ -78,7 +78,7 @@ resource "aws_instance" "control" {
       "echo '${file(var.ssh_private_key_path)}' > home/ec2-user/.ssh/preston.pem",
       "chmod 600 home/ec2-user/.ssh/preston.pem",
       "echo '[ansible-target]' > home/ec2-user/inventory.ini",
-      "echo '${aws_instance.target.private_ip} ansible_ssh_private_key_file=home/ec2-user/.ssh/ansible.pem ansible_ssh_common_args=\"-o StrictHostKeyChecking=no\"' >> home/ec2-user/inventory.ini",
+      "echo '${aws_instance.target.private_ip} ansible_ssh_private_key_file=home/ec2-user/.ssh/preston.pem ansible_ssh_common_args=\"-o StrictHostKeyChecking=no\"' >> home/ec2-user/inventory.ini",
       "ANSIBLE_HOST_KEY_CHECKING=False ansible all -i home/ec2-user/inventory.ini -m ping",
       "ANSIBLE_HOST_KEY_CHECKING=False ansible-playbook -i home/ec2-user/inventory.ini /home/ec2-user/deploy_flask_app.yml"
     ]
